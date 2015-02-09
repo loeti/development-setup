@@ -14,6 +14,10 @@ Update brew itself on regular basis
 
 To install the complete development environment, use the Brewfile 
 > brew tap homebrew/boneyard
+> brew install bundle
+
+After the installation of the "bundle" command, use the following command in the directory where the Brewfile is located.
+> brew bundle 
 
 
 
