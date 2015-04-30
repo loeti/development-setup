@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/sloetscher/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -49,10 +49,16 @@ plugins=(git)
 
 # User configuration
 
-export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=512m"
+source /usr/local/share/instantclient/instantclient.sh
 
-export PATH="/usr/local/bin:/opt/subversion/bin:/usr/local/git/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/git/bin"
-# export MANPATH="/usr/local/man:$MANPATH"
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+fi
+export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
+export JAVA_HOME="$(/usr/libexec/java_home -v '1.8*')"
+
+export PATH="/Users/sloetscher/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -70,7 +76,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -78,10 +84,15 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vi ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 alias zshsource="source ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
-alias cdvpb="cd ~/Documents/Projects/source"
-alias cdidb="cd ~/Documents/com.inventage.idb.eclipse/com.inventage.idb/iDB.build"
-alias idbssh="ssh 'inventagedb@inventagedb.inventage.com'"
-
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias cdp='cd /Volumes/Projects'
+alias cdvpb='cd /Volumes/Projects/vpbank/source'
+alias cdidb='cd /Volumes/Projects/inventage/com.inventage.idb/com.inventage.iDB/iDB.build'
+alias ll='ls -la@'
+alias idbssh='ssh -l inventagedb inventagedb.inventage.com'
+alias vpbssh='ssh -l vpbank loeti8'
+alias java6='export JAVA_HOME="$(/usr/libexec/java_home -v '\''1.6*'\'')"'
+alias java7='export JAVA_HOME="$(/usr/libexec/java_home -v '\''1.7*'\'')"'
+alias java8='export JAVA_HOME="$(/usr/libexec/java_home -v '\''1.8*'\'')"'
