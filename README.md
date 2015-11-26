@@ -15,7 +15,7 @@ or
 Package Manager
 ---------------
 
-http://brew.sh
+See http://brew.sh
 
 Install brew into "/usr/local", that's the default and it is recommended to do so.
 Problems with El Capitan see: 
@@ -47,6 +47,6 @@ Links
 ------
 * http://ethanschoonover.com/solarized
 * http://ohmyz.sh
-
+* http://brew.sh
 
 
