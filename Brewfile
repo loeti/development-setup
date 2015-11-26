@@ -6,6 +6,7 @@ install caskroom/cask/brew-cask
 install rsync
 install maven
 install ssh-copy-id
+install gradle
 
 cask install inventageerp
 cask install regelwerkstudio
