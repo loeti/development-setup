@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/sloetscher/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -9,6 +9,10 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -49,14 +53,6 @@ plugins=(git)
 
 # User configuration
 
-source /usr/local/share/instantclient/instantclient.sh
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-export MAVEN_OPTS="-Xmx1024m -XX:MaxPermSize=256m"
-export JAVA_HOME="$(/usr/libexec/java_home -v '1.8*')"
-
 export PATH="/Users/sloetscher/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MANPATH="/usr/local/man:$MANPATH"
 
@@ -66,14 +62,14 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+else
+   export EDITOR='mvim'
+fi
 
 # Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export ARCHFLAGS="-arch x86_64"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -84,15 +80,41 @@ export SSH_KEY_PATH="~/.ssh/dsa_id"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias zshsource="source ~/.zshrc"
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+autoload run-help
+
+HELPDIR=/usr/local/share/zsh/help
+
+export ORACLE_HOME="/usr/local/Oracle/product/instantclient/11.2.0.4.0"
+export PATH=$ORACLE_HOME/bin:$PATH
+
+alias build="gradlew build"
+alias buildp="gradlew :package:build"
+alias builds="gradlew :server:build"
+alias buildm="gradlew :mobile:build"
+alias buildd="gradlew :database:build"
+
+alias zshc="vim ~/.zshrc"
+alias zshs="source ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
+
 alias cdp='cd /Volumes/Projects'
 alias cdvpb='cd /Volumes/Projects/vpbank/source'
 alias cdidb='cd /Volumes/Projects/inventage/com.inventage.idb/com.inventage.iDB/iDB.build'
+
 alias ll='ls -la@'
+
 alias idbssh='ssh -l inventagedb inventagedb.inventage.com'
 alias vpbssh='ssh -l vpbank loeti8'
+alias vpbcssh='ssh -l vpbank connemara.inventage.com'
+
 alias java6='export JAVA_HOME="$(/usr/libexec/java_home -v '\''1.6*'\'')"'
 alias java7='export JAVA_HOME="$(/usr/libexec/java_home -v '\''1.7*'\'')"'
 alias java8='export JAVA_HOME="$(/usr/libexec/java_home -v '\''1.8*'\'')"'
+
+alias dvpb='/Volumes/Projects/vpbank/source/deploy.sh loeti8 apps'
+alias svpb='/Volumes/Projects/vpbank/source/deploy.sh loeti8 start'
+alias cvpb='/Volumes/Projects/vpbank/source/deploy.sh loeti8 config'
+
