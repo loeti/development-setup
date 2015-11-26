@@ -49,9 +49,14 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git jira gradle chucknorris)
 
 # User configuration
+
+#Jira plugin
+export JIRA_NAME=sloetscher
+export JIRA_DEFAULT_ACTION=dashboard
+
 
 export PATH="/Users/sloetscher/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export MANPATH="/usr/local/man:$MANPATH"
