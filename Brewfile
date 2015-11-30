@@ -8,6 +8,7 @@ install maven
 install ssh-copy-id
 install gradle
 
+cask install java
 cask install inventageerp
 cask install regelwerkstudio
 cask install appcode
@@ -19,6 +20,9 @@ cask install iterm2
 cask install textwrangler
 cask install torbrowser
 cask install sourcetree
+cask install eclipse-installer
+
+
 #cask install tunnelblick
 
 
